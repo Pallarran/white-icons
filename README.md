@@ -21,15 +21,23 @@ Referenced as:
 | `talos.png` | `talos`, `talos-voice`, `speaches` |
 | `chronicle.png` | `adventurers-chronicle`, `adventurers-chronicle-db` |
 
-512 × 512 PNG. `steward.png`, `horizon.png` and `talos.png` are on transparency,
-so they sit on Unraid's page rather than in a box of their own.
+512 × 512 PNG on transparency, so each one sits on Unraid's page rather than in
+a box of its own.
 
-`chronicle.png` is the exception and deliberately so: it is the artwork as
-drawn, tan wash included, squared off by extending that wash rather than by
-cropping into the book. The Chronicle art has no cut-out version anywhere — the
-book is painted with a vignette exactly as dark as its own leather spine, so
-keying the background either leaves a halo or punches holes in the binding.
-Shipping the painting whole beats shipping a damaged silhouette.
+**A warning worth the space, because it cost three wrong versions of
+`chronicle.png`.** Its source, the Chronicle's `public/logo-icon.png`, is 73%
+fully transparent — but the background it was composited against is still
+sitting in the RGB channels *underneath* those transparent pixels. Most image
+viewers show that buried colour, so the file looks like a book on a tan wash
+when it is nothing of the kind.
+
+Two consequences when cutting one of these down:
+
+- **Never `.convert("RGB")`.** It discards the alpha and promotes the buried
+  colour to a real background, turning a transparent icon into an opaque card.
+- **Premultiply across a resize.** LANCZOS mixes neighbouring RGB without
+  regard for alpha, so resampling straight drags that buried colour into every
+  soft edge as a pale fringe.
 
 ## Replacing an icon
 
