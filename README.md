@@ -21,8 +21,15 @@ Referenced as:
 | `talos.png` | `talos`, `talos-voice`, `speaches` |
 | `chronicle.png` | `adventurers-chronicle`, `adventurers-chronicle-db` |
 
-512 × 512 PNG on transparency, so each one sits on Unraid's dark page rather than
-in a pale box of its own.
+512 × 512 PNG. `steward.png`, `horizon.png` and `talos.png` are on transparency,
+so they sit on Unraid's page rather than in a box of their own.
+
+`chronicle.png` is the exception and deliberately so: it is the artwork as
+drawn, tan wash included, squared off by extending that wash rather than by
+cropping into the book. The Chronicle art has no cut-out version anywhere — the
+book is painted with a vignette exactly as dark as its own leather spine, so
+keying the background either leaves a halo or punches holes in the binding.
+Shipping the painting whole beats shipping a damaged silhouette.
 
 ## Replacing an icon
 
