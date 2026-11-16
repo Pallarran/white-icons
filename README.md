@@ -21,8 +21,11 @@ Referenced as:
 | `talos.png` | `talos`, `talos-voice`, `speaches` |
 | `chronicle.png` | `adventurers-chronicle`, `adventurers-chronicle-db` |
 
-512 × 512 PNG on transparency, so each one sits on Unraid's page rather than in
-a box of its own.
+Square PNGs on transparency, so each one sits on Unraid's page rather than in a
+box of its own. Three are 512 × 512; `horizon.png` is 332 × 332, because the
+only master in the Horizon repo is 355 × 267 and enlarging it would just soften
+what Unraid draws at thumbnail size. Square is what matters here. The pixel
+count is not.
 
 **A warning worth the space, because it cost three wrong versions of
 `chronicle.png`.** Its source, the Chronicle's `public/logo-icon.png`, is 73%
@@ -50,3 +53,10 @@ change — a new URL is a new cache entry, and the icon arrives on the next
 That is why the labels read, for example:
 
     https://raw.githubusercontent.com/Pallarran/white-icons/main/steward.png?v=2
+
+**And a label is baked into a container when it is created**, so editing a
+compose file does nothing at all until `up -d` recreates the container. The two
+halves fail independently and look identical from the Docker tab, which is how
+Horizon's icon stayed missing: the URL in its compose file was corrected on
+2026-09-13, and both the running containers and Unraid's cache went on serving
+the old 404 for two months.
